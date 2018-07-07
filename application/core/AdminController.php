@@ -17,18 +17,18 @@ class AdminController extends CI_Controller {
         parent::__construct();
         $this->load->database();
         $this->load->model('CommonModel');
-        if(isset($_SESSION['feedback-admin'])){
-            $whr = array("user_email"=>$this->session->userdata('feedback-admin')['user_email']);
-            $result = $this->CommonModel->getRecord("user",$whr);
+        if(isset($_SESSION['hotel-admin'])){
+            $whr = array("user_email"=>$this->session->userdata('hotel-admin')['user_email']);
+            $result = $this->CommonModel->getRecord("user_master",$whr);
             if($result->num_rows() == 1){
                 //continue
             }else{
-                $this->session->unset_userdata('feedback-admin');
-                redirect(base_url('backoffice/login'));
+                $this->session->unset_userdata('hotel-admin');
+                redirect(base_url('backendwork/login'));
             }
         }else{
 
-           redirect(base_url('backoffice/login'));
+           redirect(base_url('backendwork/login'));
         }
 	}
     public function checkexists($update_field = false,$id = false)
@@ -59,8 +59,8 @@ class AdminController extends CI_Controller {
 	    if($the_view)
 		{
 		    if($template){
-			$this->pageData['page_content'] = $this->load->view('backoffice/'.$the_view,$this->pageData,TRUE);
-			$this->load->view('backoffice/template/'.$template,$this->pageData);
+			$this->pageData['page_content'] = $this->load->view('backendwork/'.$the_view,$this->pageData,TRUE);
+			$this->load->view('backendwork/template/'.$template,$this->pageData);
 		    }
 		    else 
 		    {
