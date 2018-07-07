@@ -1,130 +1,195 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: rushik
- * Date: 019 19-04-2018
- * Time: 09:52 PM
- */ ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url() ?>/assets/backoffice/images/favicon.ico">
-    <title>Feedback | Admin Login</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="<?= base_url() ?>/assets/backoffice/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="<?= base_url() ?>/assets/backoffice/css/helper.css" rel="stylesheet">
-    <link href="<?= base_url() ?>/assets/backoffice/css/style.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
-    <!--[if lt IE 9]>
-    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+    <title>Hotel Minute Masti! | </title>
+
+    <!-- Bootstrap -->
+    <link href="<?= base_url(); ?>assets/backendwork/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="<?= base_url(); ?>assets/backendwork/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="<?= base_url(); ?>assets/backendwork/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="<?= base_url(); ?>assets/backendwork/vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="<?= base_url(); ?>assets/backendwork/build/css/custom.min.css" rel="stylesheet">
+
 </head>
 
-<body class="fix-header fix-sidebar">
-<!-- Preloader - style you can find in spinners.css -->
-<div class="preloader">
-    <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-    </svg>
-</div>
-<!-- Main wrapper  -->
-<div id="main-wrapper">
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
 
-    <div class="unix-login">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    <div class="login-content card">
-                        <div class="login-form">
-                            <h4>Feedback Admin Login</h4>
-                            <form name="LoginForm" method="post" id="LoginForm" action="<?= base_url().'backoffice/Login' ?>">
-                                <div class="form-group">
-                                    <div id="error_msg" class="<?= ($this->session->flashdata('login_error')) ? 'text-danger' : 'hidden';?>" style="padding: 10px 0px;">
-                                        <?= ($this->session->flashdata('login_error')) ? $this->session->flashdata('login_error') : "";?>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" class="form-control" name="LoginFormEmail" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" name="LoginFormPassword"
-                                           placeholder="Password">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Remember Me
-                                    </label>
-                                    <label class="pull-right">
-                                        <a href="#">Forgotten Password?</a>
-                                    </label>
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <section class="login_content">
+                <form id="LoginForm" action="" method="post">
+                    <h1>Login Form</h1>
+                    <div>
+                        <input name="LoginFormEmail" type="text" class="form-control" placeholder="Username"  />
+                        <input name="Form" type="hidden" class="form-control"  value="LoginForm" />
+                    </div>
+                    <div>
+                        <input name="LoginFormPassword" type="password" class="form-control" placeholder="Password"  />
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-default submit">Log in</button>
+                        <a class="reset_pass" href="#">Lost your password?</a>
+                    </div>
 
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
-                                <!--<div class="register-link m-t-15 text-center">
-                                    <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
-                                </div>-->
-                            </form>
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <p class="change_link">New to site?
+                            <a href="#signup" class="to_register"> Create Account </a>
+                        </p>
+
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div>
+                            <h1><i class="fa fa-paw"></i> Hotel Minute Masti!</h1>
+                            <p>©2018 All Rights Reserved. Hotel Minute Masti! is a Meet's Website. Privacy and Terms</p>
                         </div>
                     </div>
-                </div>
-            </div>
+                </form>
+            </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+            <section class="login_content">
+
+                <form name="SignupForm" id="SignupForm" action="" method="post"class="form-horizontal form-label-left">
+                    <h1>Create Account</h1>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input name="Form" type="hidden" value="SignForm">
+                            <input name="SignupFormFirstName" type="text" class="form-control" placeholder="FirstName" />
+                        </div>
+                    </div>
+                    <div>
+                        <input name="SignupFormLastName" type="text" class="form-control" placeholder="LastName" />
+                    </div>
+                    <div>
+                        <input name="SignupFormEmail" type="email" class="form-control" placeholder="Email" />
+                    </div>
+                    <div>
+                        <input name="SignupFormPassword" type="password" class="form-control" placeholder="Password" />
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-default submit">Submit</button>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <p class="change_link">Already a member ?
+                            <a href="#signin" class="to_register"> Log in </a>
+                        </p>
+
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div>
+                            <h1><i class="fa fa-paw"></i> Hotel Minute Masti!</h1>
+                            <p>©2018 All Rights Reserved. Hotel Minute Masti! is a Meet's Website. Privacy and Terms</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
-
 </div>
-<!-- End Wrapper -->
-<!-- All Jquery -->
-<script src="<?= base_url() ?>/assets/backoffice/js/lib/jquery/jquery.min.js"></script>
-<!-- Bootstrap tether Core JavaScript -->
-<script src="<?= base_url() ?>/assets/backoffice/js/lib/bootstrap/js/popper.min.js"></script>
-<script src="<?= base_url() ?>/assets/backoffice/js/lib/bootstrap/js/bootstrap.min.js"></script>
-<!-- slimscrollbar scrollbar JavaScript -->
-<script src="<?= base_url() ?>/assets/backoffice/js/jquery.slimscroll.js"></script>
-<!--Menu sidebar -->
-<script src="<?= base_url() ?>/assets/backoffice/js/sidebarmenu.js"></script>
-<!--stickey kit -->
-<script src="<?= base_url() ?>/assets/backoffice/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
-<!--Custom JavaScript -->
-<script src="<?= base_url() ?>/assets/backoffice/js/custom.min.js"></script>
-<script src="<?= base_url() ?>/assets/backoffice/js/lib/form-validation/jquery.validate.min.js"></script>
-<script src="<?= base_url() ?>/assets/backoffice/js/lib/form-validation/additional-methods.js"></script>
+</body>
+<script type="text/javascript" src="<?= base_url()?>assets/backendwork/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="<?= base_url()?>assets/backendwork/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?= base_url()?>assets/backendwork/plugins/jquery-validation/js/additional-methods.js"></script>
+
+
 <script type="text/javascript">
+
+    //login validate
     $("#LoginForm").validate({
         rules:
             {
-                LoginFormEmail: {
+                'LoginFormEmail': {
                     required: true,
                     email:true
                 },
-                LoginFormPassword: {
+                'LoginFormPassword': {
                     required: true
                 }
             },
         messages:
             {
-                LoginFormEmail: {
-                    required: "Email Required",
+                'LoginFormEmail': {
+                    required: "This Field is Required",
                     email: "Enter Valid Email"
                 },
-                LoginFormPassword: {
-                    required: "Password Required"
+                'LoginFormPassword': {
+                    required: "This Field is Required"
                 }
             }
     });
-</script>
-</body>
 
+    //signup validate
+    $("#SignupForm").validate({
+
+        highlight: function(element) {
+            $(element).parent().parent('div').addClass('bad');
+        },
+        unhighlight: function(element) {
+            $(element).parent().parent('div').removeClass('bad');
+        },
+        errorPlacement: function (e, a) {
+            jQuery(a).parent().parent().append(e)
+        },
+        errorclass:'alert',
+        rules:
+            {
+                'SignupFormFirstName': {
+                    required: true
+                },
+                'SignupFormLastName': {
+                    required: true
+                },
+                'SignupFormEmail': {
+                    required: true,
+                    email:true
+                },
+                'SignupFormPassword': {
+                    required: true
+                }
+            },
+        messages:
+            {
+                'SignupFormFirstName': {
+                    required: "<div class='alert'>This Field is Required</div>"
+                },
+                'SignupFormLastName': {
+                    required: "<div class='alert'>This Field is Required</div>"
+                },
+                'SignupFormEmail': {
+                    required: "This Field is Required",
+                    email: "Enter Valid Email"
+                },
+                'SignupFormPassword': {
+                    required: "This Field is Required"
+                }
+            }
+    });
+
+
+</script>
 </html>

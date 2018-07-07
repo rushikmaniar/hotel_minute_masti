@@ -16,6 +16,10 @@ class Login extends CI_Controller {
      */
     public function index()
     {
+        echo '<pre>';
+            print_r($this->input->post());
+        echo '</pre>';
+
         if ($this->session->userdata('hotel-admin')){redirect('backendwork/dashboard','refresh');}
 
         if($this->input->post('LoginFormEmail'))
@@ -34,7 +38,7 @@ class Login extends CI_Controller {
                 redirect('backendwork/login','refresh');
             }
         }
-        $this->load->view('backendwork/login/index-ref.php','refresh');
+        $this->load->view('backendwork/login/index.php','refresh');
     }
 
     /* check user at ajax model*/
