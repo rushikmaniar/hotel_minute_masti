@@ -16,20 +16,30 @@ class Login extends CI_Controller {
      */
     public function index()
     {
-        echo '<pre>';
-            print_r($this->input->post());
-        echo '</pre>';
 
-        if ($this->session->userdata('hotel-admin')){redirect('backendwork/dashboard','refresh');}
+        if ($this->session->userdata('hotel-admin')){
+            redirect('backendwork/dashboard','refresh');
+        }
 
         if($this->input->post('LoginFormEmail'))
         {
             $whr = array("user_email"=>$this->input->post('LoginFormEmail'),"user_password"=>md5($this->input->post('LoginFormPassword')));
-            $result = $this->CommonModel->getRecord("user_master",$whr);
+            $result = $this->CommonModel
+                ->dbjoin(
+                    array(
+                        array(
+                            'table' => 'user_details',
+                            'condition' => 'user_master.user_id = user_details.user_id'
+                        )
+                    )
+                )
+                ->getRecord("user_master",$whr);
             if ($result->num_rows() == 1)
             {
+
                 $user_data = $result->result_array();
                 $this->session->set_userdata("hotel-admin",$user_data[0]);
+
                 redirect('backendwork/dashboard','refresh');
             }
             else

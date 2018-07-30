@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,11 +35,11 @@
                 <form id="LoginForm" action="" method="post">
                     <h1>Login Form</h1>
                     <div>
-                        <input name="LoginFormEmail" type="text" class="form-control" placeholder="Username"  />
-                        <input name="Form" type="hidden" class="form-control"  value="LoginForm" />
+                        <input name="LoginFormEmail" type="text" class="form-control" placeholder="Username"/>
+                        <input name="Form" type="hidden" class="form-control" value="LoginForm"/>
                     </div>
                     <div>
-                        <input name="LoginFormPassword" type="password" class="form-control" placeholder="Password"  />
+                        <input name="LoginFormPassword" type="password" class="form-control" placeholder="Password"/>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-default submit">Log in</button>
@@ -55,7 +54,7 @@
                         </p>
 
                         <div class="clearfix"></div>
-                        <br />
+                        <br/>
 
                         <div>
                             <h1><i class="fa fa-paw"></i> Hotel Minute Masti!</h1>
@@ -69,26 +68,35 @@
         <div id="register" class="animate form registration_form">
             <section class="login_content">
 
-                <form name="SignupForm" id="SignupForm" action="" method="post"class="form-horizontal form-label-left">
+                <form name="SignupForm" id="SignupForm" action="" method="post" class="form-horizontal form-label-left">
                     <h1>Create Account</h1>
                     <div class="item form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-6">
                             <input name="Form" type="hidden" value="SignForm">
-                            <input name="SignupFormFirstName" type="text" class="form-control" placeholder="FirstName" />
+                            <input name="SignupFormFirstName" type="text" class="form-control" placeholder="FirstName"/>
                         </div>
                     </div>
-                    <div>
-                        <input name="SignupFormLastName" type="text" class="form-control" placeholder="LastName" />
+                    <div class="item form-group">
+                        <div class="col-md-6">
+                            <input name="SignupFormLastName" type="text" class="form-control" placeholder="LastName"/>
+                        </div>
                     </div>
-                    <div>
-                        <input name="SignupFormEmail" type="email" class="form-control" placeholder="Email" />
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input name="SignupFormEmail" type="email" class="form-control" placeholder="Email"/>
+                        </div>
                     </div>
-                    <div>
-                        <input name="SignupFormPassword" type="password" class="form-control" placeholder="Password" />
+                    <div class="item form-group">
+                        <div class="col-md-6">
+                            <input name="SignupFormPassword" type="password" class="form-control"
+                                   placeholder="Password"/>
+                        </div>
                     </div>
+                    <div class="item form-group">
 
-                    <div>
-                        <button type="submit" class="btn btn-default submit">Submit</button>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-default submit">Submit</button>
+                        </div>
                     </div>
 
                     <div class="clearfix"></div>
@@ -99,7 +107,7 @@
                         </p>
 
                         <div class="clearfix"></div>
-                        <br />
+                        <br/>
 
                         <div>
                             <h1><i class="fa fa-paw"></i> Hotel Minute Masti!</h1>
@@ -112,82 +120,80 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="<?= base_url()?>assets/backendwork/plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="<?= base_url()?>assets/backendwork/plugins/jquery-validation/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="<?= base_url()?>assets/backendwork/plugins/jquery-validation/js/additional-methods.js"></script>
+<script type="text/javascript" src="<?= base_url() ?>assets/backendwork/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+        src="<?= base_url() ?>assets/backendwork/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript"
+        src="<?= base_url() ?>assets/backendwork/plugins/jquery-validation/js/additional-methods.js"></script>
 
 
 <script type="text/javascript">
 
     //login validate
     $("#LoginForm").validate({
-        rules:
-            {
-                'LoginFormEmail': {
-                    required: true,
-                    email:true
-                },
-                'LoginFormPassword': {
-                    required: true
-                }
+        rules: {
+            'LoginFormEmail': {
+                required: true,
+                email: true
             },
-        messages:
-            {
-                'LoginFormEmail': {
-                    required: "This Field is Required",
-                    email: "Enter Valid Email"
-                },
-                'LoginFormPassword': {
-                    required: "This Field is Required"
-                }
+            'LoginFormPassword': {
+                required: true
             }
+        },
+        messages: {
+            'LoginFormEmail': {
+                required: "This Field is Required",
+                email: "Enter Valid Email"
+            },
+            'LoginFormPassword': {
+                required: "This Field is Required"
+            }
+        }
     });
 
     //signup validate
     $("#SignupForm").validate({
 
-        highlight: function(element) {
+        highlight: function (element) {
             $(element).parent().parent('div').addClass('bad');
         },
-        unhighlight: function(element) {
+        unhighlight: function (element) {
             $(element).parent().parent('div').removeClass('bad');
         },
         errorPlacement: function (e, a) {
             jQuery(a).parent().parent().append(e)
         },
-        errorclass:'alert',
-        rules:
-            {
-                'SignupFormFirstName': {
-                    required: true
-                },
-                'SignupFormLastName': {
-                    required: true
-                },
-                'SignupFormEmail': {
-                    required: true,
-                    email:true
-                },
-                'SignupFormPassword': {
-                    required: true
-                }
+        errorclass: 'alert',
+        rules: {
+            'SignupFormFirstName': {
+                required: true
             },
-        messages:
-            {
-                'SignupFormFirstName': {
-                    required: "<div class='alert'>This Field is Required</div>"
-                },
-                'SignupFormLastName': {
-                    required: "<div class='alert'>This Field is Required</div>"
-                },
-                'SignupFormEmail': {
-                    required: "This Field is Required",
-                    email: "Enter Valid Email"
-                },
-                'SignupFormPassword': {
-                    required: "This Field is Required"
-                }
+            'SignupFormLastName': {
+                required: true
+            },
+            'SignupFormEmail': {
+                required: true,
+                email: true
+            },
+            'SignupFormPassword': {
+                required: true
             }
+        },
+        messages: {
+            'SignupFormFirstName': {
+                required: "<div class='alert'>This Field is Required</div>"
+            },
+            'SignupFormLastName': {
+                required: "<div class='alert'>This Field is Required</div>"
+            },
+            'SignupFormEmail': {
+                required: "<div class='alert'>This Field is Required</div>",
+                email: "<div class='alert'>Enter Valid Email</div>"
+            },
+            'SignupFormPassword': {
+                required: "<div class='alert'>This Field is Required</div>"
+            }
+        }
     });
 
 
